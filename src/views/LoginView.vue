@@ -21,10 +21,12 @@ function logout(){
 </script>
 
 <template>
-  <h1>Connexion</h1>
-  <div class="actions">
-    <button v-if="!isLogged" @click="login()">Se Connecter</button>
-    <button v-else @click="logout()">Se déconnecter</button>
+  <div>
+    <h1>Connexion</h1>
+    <div class="actions">
+      <button v-if="!isLogged" @click="login()">Se Connecter</button>
+      <button v-else @click="logout()">Se déconnecter</button>
+    </div>
   </div>
 </template>
 

@@ -1,6 +1,10 @@
 // tits prérequis
-import { ref, computed } from 'vue'
+import { ref, computed, watch } from 'vue'
 import { defineStore } from 'pinia'
+import {useFetch} from "@/composables/useFetch.js";
+
+const API_URL = import.meta.env.VITE_API_URL;
+let nextId = 4;
 
 // Liste des tâches et des actions
 export const useTodoStore = defineStore('todo', () => {
@@ -36,11 +40,22 @@ export const useTodoStore = defineStore('todo', () => {
 
   function addTodo(text) {
     todos.value.push({
-      id: Date.now(),
+      id: nextId++,
       text: text,
       done: false
     })
   }
 
-  return { todos, remaining, toggleTodo, removeTodo, addTodo }
+  // ici on gère le retour de l'api par la catégorie publisher et on garde les 5 premières valeurs de son sous tableau catégories dont chacune devient une tache.
+  const { data, loading, error } = useFetch(API_URL);
+
+  watch(data, (json) => {
+    const publishers = json.facets.find(f => f.name === 'publisher')
+    publishers.facets
+      .slice(0, 5)
+      .forEach(p => addTodo(p.name))
+  })
+
+  return { todos, remaining, toggleTodo, removeTodo, addTodo, loading, error }
 })
+

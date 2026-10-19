@@ -15,8 +15,13 @@ import { RouterLink, RouterView } from 'vue-router'
     </div>
   </header>
 
-  <RouterView />
+  <RouterView v-slot="{ Component }">
+    <Transition name="fade" mode="out-in">
+      <component :is="Component" />
+    </Transition>
+  </RouterView>
 </template>
 
 <style scoped>
+/* La transition se trouve dans le fichier main.css en début de fichier après les imports. */
 </style>

@@ -12,12 +12,14 @@ const todo = computed(() => todos.value.find(t => t.id === Number(props.id)))
 </script>
 
 <template>
-  <div v-if="todo">
-    <h1>{{ todo.text }}</h1>
-    <p v-if="todo.done">Terminée</p>
-    <p v-else>En Cours</p>
+  <div>
+    <div v-if="todo">
+      <h1>{{ todo.text }}</h1>
+      <p v-if="todo.done">Terminée</p>
+      <p v-else>En Cours</p>
+    </div>
+    <p v-else>Tâche Introuvable</p>
   </div>
-  <p v-else>Tâche Introuvable</p>
 </template>
 
 <style scoped>

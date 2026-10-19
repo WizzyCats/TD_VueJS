@@ -1,6 +1,19 @@
 /* Police arrondie merci google */
 @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap');
 
+/* ===== Transitions ===== */
+.fade-enter-active, .fade-leave-active, .list-enter-active, .list-leave-active {
+  transition: all 0.3s;
+}
+.fade-enter-from, .fade-leave-to {
+  opacity: 0;
+}
+.list-enter-from, .list-leave-to{
+  opacity: 0;
+  transform: translateX(30px);
+}
+
+
 /* ===== Palette des couleurs utilisées ===== */
 :root {
   --nuit: #0d1d52;

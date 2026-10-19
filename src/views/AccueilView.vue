@@ -3,7 +3,9 @@
 </script>
 
 <template>
-<h1>ici on est à l'accueil</h1>
+  <div>
+    <h1>ici on est à l'accueil</h1>
+  </div>
 </template>
 
 <style scoped>
