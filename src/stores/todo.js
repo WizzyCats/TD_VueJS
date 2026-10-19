@@ -6,7 +6,7 @@ import {useFetch} from "@/composables/useFetch.js";
 const API_URL = import.meta.env.VITE_API_URL;
 let nextId = 4;
 
-// Liste des tâches et des actions
+// Liste des tâches et des actions par défaut
 export const useTodoStore = defineStore('todo', () => {
   const todos = ref([
     {
@@ -46,7 +46,7 @@ export const useTodoStore = defineStore('todo', () => {
     })
   }
 
-  // ici on gère le retour de l'api par la catégorie publisher et on garde les 5 premières valeurs de son sous tableau catégories dont chacune devient une tache.
+  // ici on gère le retour de l'api, on récupère la catégorie publisher et les 5 premières valeurs de son sous tableau catégories dont chacune devient une tache.
   const { data, loading, error } = useFetch(API_URL);
 
   watch(data, (json) => {

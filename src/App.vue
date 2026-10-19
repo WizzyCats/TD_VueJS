@@ -5,7 +5,6 @@ import { RouterLink, RouterView } from 'vue-router'
 <template>
   <header>
     <div class="wrapper">
-
       <nav>
         <RouterLink to="/">Accueil</RouterLink>
         <RouterLink to="/todos">Liste</RouterLink>
@@ -23,5 +22,5 @@ import { RouterLink, RouterView } from 'vue-router'
 </template>
 
 <style scoped>
-/* La transition se trouve dans le fichier main.css en début de fichier après les imports. */
+/* Les transitions se trouve dans le fichier main.css en début de fichier après les imports. */
 </style>

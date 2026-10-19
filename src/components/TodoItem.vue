@@ -1,7 +1,10 @@
 <script setup>
+//Ce que le composant reçoit de son parent.
 defineProps({
   todo: { type: Object, required: true}
 })
+
+//Ce que le composant peut lui envoyer.
 const emit = defineEmits(['toggle', 'delete'])
 
 </script>

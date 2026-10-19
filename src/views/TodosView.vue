@@ -4,9 +4,9 @@ import {storeToRefs} from "pinia";
 import TodoItem from "@/components/TodoItem.vue";
 import TodoForm from "@/components/TodoForm.vue";
 
-const store = useTodoStore();
-const {todos, remaining, loading, error} = storeToRefs(store);
-const {toggleTodo, removeTodo, addTodo} = store;
+const store = useTodoStore(); // On récupère les tâches et les actions contenues dans le store
+const {todos, remaining, loading, error} = storeToRefs(store); // on récupère les données et on les garde réactives
+const {toggleTodo, removeTodo, addTodo} = store; // On récupère les actions directement
 
 </script>
 

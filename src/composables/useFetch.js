@@ -1,7 +1,7 @@
 import { ref } from 'vue'
 
+// Récupération du retour de l'API
 export function useFetch(url) {
-
 
   const data = ref(null);
   const error = ref(null);

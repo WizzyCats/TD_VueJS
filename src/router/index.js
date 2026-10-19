@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-
+// Mes petites routes
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -30,14 +30,12 @@ const router = createRouter({
     {
       path: '/about',
       name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
       component: () => import('../views/AProposView.vue')
     }
   ],
 })
 
+// Permet de vérifier si un token est nécessaire pour afficher une page
 router.beforeEach((to, from) => {
   const isLogged = !!localStorage.getItem('token')
   if (to.meta.requiresAuth && !isLogged){
